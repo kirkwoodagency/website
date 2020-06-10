@@ -1,37 +1,162 @@
 <html>
 	<head>
 		<meta charset='utf-8'>
-		<title>We are Kirkwood</title>
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:800&display=swap" rel="stylesheet">
+		<title>Welcome to Kirkwood</title>
+		<link rel="stylesheet" href="https://use.typekit.net/hbk6wec.css">		
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 		<script>
 			a = 'hello'; b = 'kirkwood.agency'; c = a + '&#64;' + b; d = 'mailto:' + c;
 			e = '<a href="' + d + '">' + c + '</a>';
 		</script>
 		<style>
+			:root {
+				--black: #222D38;
+				--cream: #EEEDDD;
+				--red: #BE1D3D;
+				--white: #FFFFFF;
+			}
 			body {
-				display: flex;
-  				flex-direction: column;
-				justify-content: center;
-				margin: 0 1em;
+				margin: 0;
+
+				color: var(--black);
+				font-family: proxima-nova, sans-serif;
+				font-size: 24;
+				font-weight: 400;
+				font-style: normal;
 				text-align: center;
 			}
+			header, main, footer {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+
+				height: calc(100vh * .66);
+				width: 100%;
+			}
+			main {
+				color: var(--cream);
+				background: var(--red);
+			}
+			footer {
+				background: var(--cream);
+			}
+			a {
+				color: var(--black);
+			}
 			p {
-				color: #666;
-				font-family: 'IBM Plex Mono', monospace;
+				margin: 0;
+				max-width: 32em;
+				padding: 0 1em;
 			}
 			h1 {
-				color: #333;
-				font-family: 'Montserrat', sans-serif;
+				display: none;
+			}
+
+			/* Kirkwood logo */
+			div {
+				display: inline-block;
+				position: relative;
+				border: 2px solid var(--red);
+				font-weight: 800;
+				font-size: 32;
+				padding: 16;
 				text-transform: uppercase;
+			}
+			div::before {
+				content: '';
+  				display: inline-block;
+				position: absolute;
+				top: -9px;
+				left: -9px;
+				width: 12px;
+				height: 12px;
+				background-color: var(--white);
+				border: 2px solid var(--red);
+				border-radius: 2px;
+			}
+			div::after {
+				content: '';
+  				display: inline-block;
+				position: absolute;
+				top: -9px;
+				right: -9px;
+				width: 12px;
+				height: 12px;
+				background-color: var(--white);
+				border: 2px solid var(--red);
+				border-radius: 2px;
+			}
+			span::before {
+				content: '';
+  				display: inline-block;
+				position: absolute;
+				bottom: -9px;
+				left: -9px;
+				width: 12px;
+				height: 12px;
+				background-color: var(--white);
+				border: 2px solid var(--red);
+				border-radius: 2px;
+			}
+			span::after {
+				content: '';
+  				display: inline-block;
+				position: absolute;
+				bottom: -9px;
+				right: -9px;
+				width: 12px;
+				height: 12px;
+				background-color: var(--white);
+				border: 2px solid var(--red);
+				border-radius: 2px;
+			}
+			.typed-cursor {
+				color: var(--red);
+				font-weight: 400;
+			}
+			.typed-cursor--blink { 
+				animation-duration: 1.0s !important;
+			}
+
+			/* Larger screens */
+			@media (min-width: 768px) {
+				body {
+					font-size: 40;
+				}
+				div {
+					font-size: 64;
+					padding: 32;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<p>👋 Hello!</p>
-		<h1>We are Kirkwood.</h1>
-		<p>We are a product design agency in San Francisco.</p>
-		<p>Get in touch, <script>document.write(e);</script>.</p>
+		<header>
+			<h1>Kirkwood</h1>
+		</header>
+		<main>
+			<p>We help startups & established companies design simple, intuitive product experiences for their customers.</p>
+		</main>
+		<footer>
+			<p>What can we help you deliver?</p>
+			<p><script>document.write(e);</script><noscript>👋</noscript></p>
+		</footer>
+		<script>
+			// Kirkwood logo
+			const h1 = document.querySelector('h1')
+			const logoContainer = document.createElement('div')
+			const textContainer = document.createElement('span')
+			logoContainer.appendChild(textContainer)
+			h1.parentNode.insertBefore(logoContainer, h1.nextSibling);
+			const typed = new Typed('span', {
+				strings: ['Kirkwood'],
+				startDelay: 500,
+  				typeSpeed: 200,
+				cursorChar: '_'
+			})
+		</script>
 	</body>
 </html>
